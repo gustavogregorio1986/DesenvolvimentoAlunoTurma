@@ -6,6 +6,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ProjetoTurma.Data;
+using ProjetoTurma.Repositorio;
+using ProjetoTurma.Repositorio.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,6 +29,7 @@ namespace ProjetoTurma
         {
             services.AddControllersWithViews();
             services.AddDbContext<BancoContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DataBase")));
+            services.AddScoped<IAlunoRepositorio, AlunoRepositorio>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
