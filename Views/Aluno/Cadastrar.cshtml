@@ -1,4 +1,6 @@
-﻿@{
+﻿@using ProjetoTurma.Enum
+@model AlunoModel
+@{
     ViewData["Title"] = "Cadastro Aluno";
 }
 
@@ -6,30 +8,35 @@
     <h2 class="display-4">Cadastro de Aluno e Turma</h2>
 </div>
 
-<form>
+<form asp-controller="Aluno" asp-action="Cadastrar">
   <div class="form-group">
     <label for="nome">Nome</label>
-    <input type="text" class="form-control" placeholder="Nome">
+    <input type="text" asp-for="Nome" class="form-control" placeholder="Nome">
+    @Html.ValidationMessageFor(x => x.Nome)
   </div>
   <div class="form-group">
     <label for="e-mail">E-mail</label>
-    <input type="text" class="form-control" placeholder="Email">
+    <input type="text" asp-for="Email" class="form-control" placeholder="Email">
+    @Html.ValidationMessageFor(x => x.Email)
   </div>
   <div class="form-group">
     <label for="escola">Escola</label>
-    <input type="text" class="form-control" placeholder="Escola">
+    <input type="text" asp-for="Escola" class="form-control" placeholder="Escola">
+    @Html.ValidationMessageFor(x => x.Escola)
   </div>
    <div class="form-group">
     <label for="e-curso">Curso</label>
-    <input type="text" class="form-control" placeholder="Curso">
+    <input type="text" asp-for="Curso" class="form-control" placeholder="Curso">
+    @Html.ValidationMessageFor(x => x.Curso)
   </div>
   <div class="form-group">
     <label for="situação">Situação</label>
-    <select class="form-control">
+    <select class="form-control" asp-for="Situacao">
         <option value="0">Selecione</option>
-        <option value="1">Em andamento</option>
-        <option value="2">Concluído</option>
+        <option value="@SituacaoEnum.EmAndamento">Em andamento</option>
+        <option value="@SituacaoEnum.Concluido">Concluído</option>
     </select>
+    @Html.ValidationMessageFor(x => x.Situacao)
   </div>
   <button type="submit" class="btn btn-primary">Cadastro Aluno</button>
 </form>

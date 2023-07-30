@@ -28,14 +28,17 @@ namespace ProjetoTurma.Migrations
                     b.Property<string>("Curso")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Escola")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nome")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Situacao")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Situacao")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

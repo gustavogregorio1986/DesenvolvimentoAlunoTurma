@@ -1,6 +1,8 @@
 ﻿using ProjetoTurma.Data;
 using ProjetoTurma.Models;
 using ProjetoTurma.Repositorio.Interface;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ProjetoTurma.Repositorio
 {
@@ -8,7 +10,7 @@ namespace ProjetoTurma.Repositorio
     {
         private readonly BancoContext _bancoContext;
 
-        public Alunorepositorio(BancoContext bancoContext)
+        public AlunoRepositorio(BancoContext bancoContext)
         {
             _bancoContext = bancoContext;
         }
@@ -19,6 +21,11 @@ namespace ProjetoTurma.Repositorio
             _bancoContext.SaveChanges();
 
             return aluno;
+        }
+
+        public List<AlunoModel> ListarTodosAlunos()
+        {
+            return _bancoContext.Alunos.ToList();
         }
     }
 }

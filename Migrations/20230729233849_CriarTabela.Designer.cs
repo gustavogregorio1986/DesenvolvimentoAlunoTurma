@@ -9,7 +9,7 @@ using ProjetoTurma.Data;
 namespace ProjetoTurma.Migrations
 {
     [DbContext(typeof(BancoContext))]
-    [Migration("20230729225646_CriarTabela")]
+    [Migration("20230729233849_CriarTabela")]
     partial class CriarTabela
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -30,14 +30,17 @@ namespace ProjetoTurma.Migrations
                     b.Property<string>("Curso")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Escola")
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nome")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Situacao")
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Situacao")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

@@ -1,10 +1,31 @@
-﻿@{
+﻿@model List<AlunoModel>
+@{
     ViewData["Title"] = "Consultar Aluno";
 }
 
 <div class="text-center">
-    <h2 class="display-4">Consulsatr Aluno</h2>
+    <h2 class="display-4">Consultar Aluno</h2>
 </div>
+
+<br/>
+
+  @if(TempData["MensagemSucesso"] != null)
+    {
+         <div class="alert alert-success" role="alert">
+           <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
+           @TempData["MensagemSucesso"]
+        </div>   
+    }
+
+    @if(TempData["MensagemErro"] != null)
+    {
+         <div class="alert alert-success" role="alert">
+           <button type="button" class="btn btn-danger btn-sm close-alert" arial-label="Close">X</button>
+           @TempData["MensagemErro"]
+        </div>   
+    }
+
+<br/>
 
 <table class="table table-striped" id="table-alunos">
   <thead>
@@ -18,29 +39,19 @@
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>mark@gmail.com</td>
-      <td>dinamis</td>
-      <td>3 ano de medio</td>
-      <td>Em andamento</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>jacob@gmail.vom</td>
-      <td>ciencia da computação</td>
-      <td>3º semestre</td>
-      <td>Em andamento</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>larry@uol.com.br</td>
-      <td>direito</td>
-      <td>5º periodo</td>
-      <td>Em andamento</td>
-    </tr>
+        @if (Model != null && Model.Any())
+        {
+            foreach(var aluno in Model)
+            {
+                 <tr>
+                  <th scope="row">@aluno.Id</th>
+                  <td>@aluno.Nome</td>
+                  <td>@aluno.Email</td>
+                  <td>@aluno.Escola</td>
+                  <td>@aluno.Curso</td>
+                  <td>@aluno.Situacao</td>
+                </tr> 
+            }
+        }
   </tbody>
 </table>

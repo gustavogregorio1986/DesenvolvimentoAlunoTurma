@@ -13,9 +13,10 @@ namespace ProjetoTurma.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Nome = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Escola = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     Curso = table.Column<string>(type: "nvarchar(max)", nullable: true),
-                    Situacao = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Situacao = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
