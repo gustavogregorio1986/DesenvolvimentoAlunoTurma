@@ -23,6 +23,41 @@ namespace ProjetoTurma.Repositorio
             return aluno;
         }
 
+        public bool Apagar(int id)
+        {
+            AlunoModel alunodb = ListarPorId(id);
+
+            if (alunodb == null) throw new System.Exception("Houve erro na deleção do alunio com turma");
+
+            _bancoContext.Alunos.Remove(alunodb);
+            _bancoContext.SaveChanges();
+
+            return true;
+        }
+
+        public AlunoModel Atualizar(AlunoModel aluno)
+        {
+            AlunoModel alunodb = ListarPorId(aluno.Id);
+
+            if (alunodb == null) throw new System.Exception("Houve um erro ao cadastra aluno e turma");
+
+            alunodb.Nome = aluno.Nome;
+            alunodb.Email = aluno.Email;
+            alunodb.Escola = aluno.Escola;
+            alunodb.Curso = aluno.Curso;
+            alunodb.Situacao = aluno.Situacao;
+
+            _bancoContext.Alunos.Update(alunodb);
+            _bancoContext.SaveChanges();
+
+            return alunodb;
+        }
+
+        public AlunoModel ListarPorId(int id)
+        {
+            return _bancoContext.Alunos.FirstOrDefault(x => x.Id == id);
+        }
+
         public List<AlunoModel> ListarTodosAlunos()
         {
             return _bancoContext.Alunos.ToList();

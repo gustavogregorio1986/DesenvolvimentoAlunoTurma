@@ -1,0 +1,11 @@
+﻿@model AlunoModel
+@{
+    ViewData["Title"] = "Apagar Aluno";
+}
+
+<div class="text-center">
+    <h2 class="display-4">Confirmação da deleção do Aluno(@Model.Nome)?</h2>
+</div>
+
+<a role="button" asp-route-id="Id" asp-controller="Aluno" asp-action="Consultar" class="btn btn-danger btn-block">Voltar</a>
+<a role="button" asp-route-id="Id" asp-controller="Aluno" asp-action="Apagar" class="btn btn-primary btn-block">Exclusão do aluno</a>

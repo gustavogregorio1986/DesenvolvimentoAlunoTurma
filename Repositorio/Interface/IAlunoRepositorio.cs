@@ -8,5 +8,11 @@ namespace ProjetoTurma.Repositorio.Interface
         AlunoModel Adicionar(AlunoModel aluno);
 
         List<AlunoModel> ListarTodosAlunos();
+
+        AlunoModel ListarPorId(int id);
+
+        AlunoModel Atualizar(AlunoModel aluno);
+
+        bool Apagar(int id);
     }
 }

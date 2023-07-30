@@ -1,14 +1,15 @@
 ﻿@using ProjetoTurma.Enum
 @model AlunoModel
 @{
-    ViewData["Title"] = "Cadastro Aluno";
+    ViewData["Title"] = "Editar Aluno";
 }
 
 <div class="text-center">
     <h2 class="display-4">Cadastro de Aluno e Turma</h2>
 </div>
 
-<form asp-controller="Aluno" asp-action="Cadastrar" method="post">
+<form asp-controller="Aluno" asp-action="Alterar" method="post">
+  <input type="hidden" asp-for="Id" />
   <div class="form-group">
     <label for="nome">Nome</label>
     <input type="text" asp-for="Nome" class="form-control" placeholder="Nome">

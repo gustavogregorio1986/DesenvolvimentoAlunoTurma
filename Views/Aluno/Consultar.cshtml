@@ -36,6 +36,7 @@
       <th scope="col">Escola</th>
       <th scope="col">Curso</th>
       <th scope="col">Situação</th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
@@ -50,6 +51,10 @@
                   <td>@aluno.Escola</td>
                   <td>@aluno.Curso</td>
                   <td>@aluno.Situacao</td>
+                  <td>
+                      <a role="button" asp-controller="Aluno" asp-route-id="@aluno.Id" asp-action="Editar" class="btn btn-primary">Editar</a>
+                      <a role="button" asp-controller="Aluno" asp-route-id="@aluno.Id" asp-action="ApagarConfirmacao" class="btn btn-danger">Apagar</a>
+                  </td>
                 </tr> 
             }
         }
